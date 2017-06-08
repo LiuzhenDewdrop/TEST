@@ -36,6 +36,7 @@ public class Test {
 		public void setD(Date d) {
 			this.d = d;
 		}
+		
 	}
 	
 	private static void testDateValue(Date d) {
