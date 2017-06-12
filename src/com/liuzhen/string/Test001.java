@@ -19,7 +19,7 @@ public class Test001 {
 			e.printStackTrace();
 		}
 		System.out.println(Long.parseLong("123456789"));
-		String testStr = ",1235,";
+		String testStr = ",4564,";
 		testStr = testStr.substring(1, testStr.length() - 1);
 		System.out.println(testStr + ":" + testStr.length());
 		System.exit(0);
