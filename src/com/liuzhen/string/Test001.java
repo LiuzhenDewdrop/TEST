@@ -16,11 +16,10 @@ public class Test001 {
 			str1 = new String(str.getBytes("UTF-8"), "GBK");
 			System.out.println(str1);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(Long.parseLong("123456789"));
-		
+		System.out.println(",".substring(1).length());
 		System.exit(0);
 	}
 }
