@@ -71,5 +71,6 @@ public class Test {
 		BigDecimal tempNum = (BigDecimal) map.get("num");
 		tempNum = tempNum.add(new BigDecimal(50));
 		System.out.println(map.get("num"));
+		System.out.println(0x5DEECE66DL);
 	}
 }
