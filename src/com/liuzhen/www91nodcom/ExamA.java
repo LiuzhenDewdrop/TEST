@@ -1,9 +1,9 @@
 package com.liuzhen.www91nodcom;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -15,24 +15,33 @@ import java.util.Scanner;
  * @author Liuzhen
  */
 public class ExamA {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("INPUT:");
-		int in = sc.nextInt();
-		countOneOld(in);
-		countOne(in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+//		Scanner sc = new Scanner(System.in);
+//		PrintWriter out = new PrintWriter(System.out);
+//		int in = sc.nextInt();
+//		System.out.println("INPUT:");
+		int in = Integer.parseInt(reader.readLine());
+//		countOneOld(in);
+//		writer.write(countOne(in) + "\r\n");
+//		writer.flush();
+//		out.println(countOne(in));
+//		out.flush();
+		System.out.println(countOne(in));
 	}
 	
-	private static void countOne(int in) {
-		long start = new Date().getTime();
+	private static int countOne(int in) {
+//		long start = new Date().getTime();
 		int out = 0;
 		int digit = 10;
 		do {
 			out += countPiece(in % digit, in / digit, digit / 10);
 			digit *= 10;
 		} while (in >= digit);
-		System.out.println("结果:" + out);
-		System.out.println("时间:" + (new Date().getTime() - start));
+//		System.out.println("结果:" + out);
+//		System.out.println("时间:" + (new Date().getTime() - start));
+		return out;
 	}
 	
 	private static int countPiece(int low, int high, int digit) {
@@ -58,20 +67,20 @@ public class ExamA {
 		return result;
 	}
 	
-	private static void countOneOld(int in) {
-		long start = new Date().getTime();
-		int out = 0;
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < in; i++) {
-			String num = i + 1 + "";
-			int count = num.length() - num.replaceAll("1", "").length();
-			if (count > 0) {
-				list.add(i + 1);
-				out += count;
-			}
-		}
-		System.out.println("含有1的个数:" + out);
-		System.out.println(list);
-		System.out.println("时间:" + (new Date().getTime() - start));
-	}
+//	private static void countOneOld(int in) {
+//		long start = new Date().getTime();
+//		int out = 0;
+//		List<Integer> list = new ArrayList<>();
+//		for (int i = 0; i < in; i++) {
+//			String num = i + 1 + "";
+//			int count = num.length() - num.replaceAll("1", "").length();
+//			if (count > 0) {
+//				list.add(i + 1);
+//				out += count;
+//			}
+//		}
+//		System.out.println("含有1的个数:" + out);
+//		System.out.println(list);
+//		System.out.println("时间:" + (new Date().getTime() - start));
+//	}
 }

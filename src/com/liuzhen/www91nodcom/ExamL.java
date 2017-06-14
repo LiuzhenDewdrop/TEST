@@ -1,9 +1,9 @@
 package com.liuzhen.www91nodcom;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
 
 /**
  * @class: ExamL
@@ -40,40 +40,71 @@ import java.util.Scanner;
  * @author Liuzhen
  */
 public class ExamL {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("INPUT:");
-//		int length = sc.nextInt();
-//		int[] arr = createArr(length);
-		int[] arr = {0, 2, 4, 6, 8, 10, 12, 14};
-		System.out.println("数组:" + Arrays.toString(arr));
-		replace(3, 0, arr, arr.length);
-		System.out.println("数组:" + Arrays.toString(arr));
-		
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 1 << 16);
+//		System.out.println("INPUT:");
+		int length = Integer.parseInt(reader.readLine());
+//		int[] arr = createArr1(length);
+		int[] arr = new int[length];
+		for(int i = 0; i < length; i++) {
+			arr[i] = Integer.parseInt(reader.readLine());
+		}
+//		System.out.println("数组:" + Arrays.toString(arr));
+		calc(arr);
+//		int[] arr = {0, 2, 4, 6, 8, 10, 12, 14};
+//		for (int i = 0; i < 15; i++) {
+//			for (int j = -1; j <16 ; j++) {
+//				int[] arr1 = arr.clone();
+//				replace(j, i, arr1, arr.length);
+//				System.out.println("数组:" + Arrays.toString(arr1));
+//			}
+//			i++;
+//		}
 	}
 	
-	private static int[] createArr(int length) {
-		int[] arr = new int[length];
-		Random r = new Random();
-		for (int i = 0; i < length; i++) {
-			arr[i] = r.nextInt(1000000000) + 1;
-		}
-		return arr;
-	}
+//	private static int[] createArr(int length) {
+//		int[] arr = new int[length];
+//		Random r = new Random();
+//		for (int i = 0; i < length; i++) {
+//			arr[i] = r.nextInt(10) + 1;
+//		}
+//		return arr;
+//	}
+	
+//	private static int[] createArr1(int length) {
+//		int[] arr = new int[length];
+////		Random r = new Random();
+//		for (int i = 0; i < length; i++) {
+//			arr[i] = i + 1;
+//		}
+//		return arr;
+//	}
 	
 	private static void calc(int[] arr) {
+//		long start = new Date().getTime();
+		BigInteger maxMin = findMaxMinValue(arr);
+		boolean need2Calc = true;
 		for (int i = 0; i < arr.length; i++) {
-			
+			if (need2Calc) {
+				BigInteger calResult = calcPieceOld(arr, i + 1);
+				System.out.println(calResult);
+				if (maxMin.compareTo(calResult) == 0) {
+					need2Calc = false;
+				}
+			} else {
+				System.out.println(maxMin);
+			}
 		}
+//		System.out.println(new Date().getTime() - start);
 	}
 	
-	private static BigDecimal calcPiece(int[] arr, int length) {
+	private static BigInteger calcPieceOld(int[] arr, int length) {
 		int[] arr1 = arr.clone();
 		quickSort(0, length - 1, arr1);
-		BigDecimal result = BigDecimal.valueOf(arr1[0]).multiply(BigDecimal.valueOf(arr1[length]));
+		BigInteger result = BigInteger.valueOf(arr1[0]).multiply(BigInteger.valueOf(arr1[length - 1]));
 		for (int i = 0; i < arr.length - length; i++) {
 			replace(arr[length + i], arr[i], arr1, length);
-			BigDecimal temp = BigDecimal.valueOf(arr1[0]).multiply(BigDecimal.valueOf(arr1[length]));
+			BigInteger temp = BigInteger.valueOf(arr1[0]).multiply(BigInteger.valueOf(arr1[length - 1]));
 			if (temp.compareTo(result) > 0) {
 				result = temp;
 			}
@@ -103,42 +134,85 @@ public class ExamL {
 	}
 	
 	private static void replace(int in, int out, int[] arr, int length) {
-		System.out.println(in + "换" + out + ":");
-		int temp = in;
-		boolean find = false;
-		boolean insert = false;
-		for (int i = 0; i < length - 1; i++) {
-			if (!insert && arr[i] >= in) {
-				insert = true;
-				if (find) {
-					arr[i - 1] = in;
-					return;
+//		System.out.println(in + "换" + out + ":");
+		if (in == out) {
+			return;
+		} else {
+			boolean find = false;
+			if (in < out) {
+				for (int i = length - 1; i >= 0; i--) {
+					if (i == 0) {
+						arr[0] = in;
+						return;
+					}
+					if (!find && arr[i] == out) {
+						find = true;
+					}
+					if (find) {
+						if (arr[i - 1] < in) {
+							arr[i] = in;
+							return;
+						}
+						arr[i] = arr[i - 1];
+					}
+				}
+			} else {
+				for (int i = 0; i < length; i++) {
+					if (i == length - 1) {
+						arr[length - 1] = in;
+						return;
+					}
+					if (!find && arr[i] == out) {
+						find = true;
+					}
+					if (find) {
+						if (arr[i + 1] > in) {
+							arr[i] = in;
+							return;
+						}
+						arr[i] = arr[i + 1];
+					}
 				}
 			}
-			if (arr[i] == out) {
-				find = true;
-				arr[i] = arr[i + 1];
-			}
-			if (find && insert) {
-				arr[i] = temp;
-				return;
-			} else if (find && !insert) {
-				arr[i] = arr[i + 1];
-				if (arr[i] >= in) {
-					arr[i] = in;
-					insert = true;
-					return;
-				}
-			} else if (!find && insert) {
-				int t = temp;
-				temp = arr[i];
-				arr[i] = t;
-			}
-		}
-		if (!insert || !find) {
-			arr[length - 1] = in;
 		}
 	}
 	
 	
+	
+	private static BigInteger findMaxMinValue(int[] arr) {
+		int min = arr[0];
+		int max = arr[0];
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < min) {
+				min = arr[i];
+			}
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		return BigInteger.valueOf(min).multiply(BigInteger.valueOf(max));
+	}
+	
+//	private static BigInteger calcPiece(int[] arr, int length) {
+//		int[] maxMin = findMaxMin(arr, 0, length);
+//		for (int i = 0; i < arr.length - length; i++) {
+//
+//		}
+//		return result;
+//	}
+	
+//	private static int[] findMaxMin(int[] arr, int start, int end) {
+//		int[] resultArr = new int[2];
+//		resultArr[0] = arr[start];
+//		resultArr[1] = arr[start];
+//		for (int i = start; i < end; i++) {
+//			if (arr[i] < resultArr[0]) {
+//				resultArr[0] = arr[i];
+//			}
+//			if (arr[i] > resultArr[1]) {
+//				resultArr[1] = arr[i];
+//			}
+//		}
+//		return resultArr;
+//	}
 }
