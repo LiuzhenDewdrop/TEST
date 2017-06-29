@@ -17,8 +17,7 @@ public class CountNum {
 					b[index] = true;	// 踢出圈
 					left--;
 			}
-			index ++;
-			if (index == n) {			// 一圈了
+			if (++index == n) {			// 一圈了
 				index = 0;
 			}
 		}

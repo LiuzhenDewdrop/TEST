@@ -29,10 +29,18 @@ public class Test001 {
 		}
 		
 		System.out.println("null test start..."); // 报错NullPointerException
-		List<Map<String, Object>> list1 = null;
-		for (Map<String, Object> map : list1) {
-			System.out.println(map.get(1));
-		}
+//		List<Map<String, Object>> list1 = null;
+//		for (Map<String, Object> map : list1) {
+//			System.out.println(map.get(1));
+//		}
+		
+		List<Integer> listA = new ArrayList<>();
+		List listB = listA;
+		listB.add("123");
+		listB.get(0);
+		listA.get(0);
+		String s = (String) listB.get(0);
+		Integer a = listA.get(0);
 		System.exit(0);
 	}
 }

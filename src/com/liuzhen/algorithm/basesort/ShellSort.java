@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ShellSort {
 
 	private void shellInsert(int[] a) {
-		int d = a.length%2 == 0 ? a.length/2 : a.length/2 + 1;	// 以长度半数作为间隔值d
+		int d = a.length % 2 == 0 ? a.length / 2 : a.length / 2 + 1;	// 以长度半数作为间隔值d
 		while (true) {
 			for (int i = 0; i < d; i++) {						// 隔断为d组(如1、4、7...2、5、8...3、6、9...)
 				for (int j = i; j < a.length - d; j += d) {		// 对每组分别进行插入排序

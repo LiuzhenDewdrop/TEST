@@ -51,7 +51,7 @@ public class EightQueen001 {
 	public boolean placable(int a, int b) {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < width; j++) {
-				if (table[i][j] == 1 && (i ==a || j == b || a - i == b - j || a - i + b - j == 0)) {
+				if (table[i][j] == 1 && (i == a || j == b || a - i == b - j || a - i + b - j == 0)) {
 					return false;
 				}
 			}

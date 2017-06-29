@@ -1,4 +1,6 @@
-package com.liuzhen.algorithm.eightqueen;/*
+package com.liuzhen.algorithm.eightqueen;
+
+/*
  * @class: EightQueen002
  * @description: 八皇后问题(二维数组墙壁解法)
  * @author L.zhen

@@ -22,6 +22,16 @@ public class Test001 {
 		String testStr = ",4564,";
 		testStr = testStr.substring(1, testStr.length() - 1);
 		System.out.println(testStr + ":" + testStr.length());
+		String name = "成十一";
+		try {
+			// UTF-8
+			// GBK
+			// iso8859-1
+			// gb2312
+			System.out.println("name" + name + ":" + new String(name.getBytes("UTF-8"), "iso8859-1"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		System.exit(0);
 	}
 }
