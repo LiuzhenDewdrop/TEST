@@ -11,9 +11,11 @@ public class Test {
 	public static void main(String[] args) {
 		Date d = new Date(117, 2, 16, 15, 20, 30);
 //		System.out.println(d.getTime());
-		testDateValue(d);
-		System.out.println("testDateValue out:" + d);
+//		testDateValue(d);
+		System.out.println("testDateValue outer:" + d);
 //		testValue();
+		parseTime2Date(d);
+		System.out.println("testDate outer:" + d);
 	}
 	
 	private static void testValue() {
@@ -43,5 +45,10 @@ public class Test {
 		Date d1 = new Date(d.getTime());
 		d1.setHours(0);
 		System.out.println("testDateValue inner:" + d1);
+	}
+	
+	private static void parseTime2Date(Date d) {
+		Date d1 = new Date(d.getYear(), d.getMonth(), d.getDate());
+		System.out.println("testDate inner:" + d1);
 	}
 }

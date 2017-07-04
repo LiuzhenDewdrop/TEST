@@ -1,4 +1,4 @@
-package com.liuzhen;
+package com.liuzhen.valuetransfer;
 
 public class ParamTest {
 

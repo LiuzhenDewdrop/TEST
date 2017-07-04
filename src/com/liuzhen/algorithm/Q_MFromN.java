@@ -63,10 +63,10 @@ public class Q_MFromN {
 		String[] a = {"a", "b", "c", "d"};
 		int m = 3;
 		String[] b = new String[m];
-//		q.getC(a, 0, b, m);
+		q.getC(a, 0, b, m);
 		int[] c = {1, 2, 3, 4, 5};
 //		q.getAAll(c, 0);
 		int[] d = new int[m];
-		q.getA(c, 0, d, m);
+//		q.getA(c, 0, d, m);
 	}
 }
