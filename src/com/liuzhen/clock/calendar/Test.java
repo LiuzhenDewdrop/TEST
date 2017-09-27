@@ -10,5 +10,7 @@ public class Test {
 		System.out.println(c.getTime());
 		c.add(Calendar.MONTH, -1);
 		System.out.println(c.getTime());
+		Calendar c1 = Calendar.getInstance();
+		System.out.println(c1.get(Calendar.YEAR) + " " + (c1.get(Calendar.MONTH) + 1) + " " + c1.get(Calendar.DAY_OF_MONTH) + " " + c1.get(Calendar.HOUR_OF_DAY));
 	}
 }

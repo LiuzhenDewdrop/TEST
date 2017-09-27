@@ -17,7 +17,6 @@ public class Test {
 		test003();
 		test004();
 		test005();
-		
 		System.exit(0);
 	}
 	

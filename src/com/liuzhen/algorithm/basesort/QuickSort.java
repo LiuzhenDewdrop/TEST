@@ -25,8 +25,8 @@ public class QuickSort {
 				a[high] = a[low];						// 左侧比参考点大的右移
 			}
 			a[low] = mid;								// 参考点数据安置
-			quick(a, start, low - 1);					// 参考点左侧数组排序
-			quick(a, low + 1, end);						// 参考点右侧数组排序
+			quick(a, start, low - 1);				// 参考点左侧数组排序
+			quick(a, low + 1, end);					// 参考点右侧数组排序
 		}
 	}
 	
