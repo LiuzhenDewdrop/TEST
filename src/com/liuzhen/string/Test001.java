@@ -5,10 +5,15 @@ import java.io.UnsupportedEncodingException;
 public class Test001 {
 
 	public static void main(String[] args) {
-		String[] arr = ",12".split(",");
+		String[] arr = ",12,".split(",");
 		System.out.println(arr.length);
 		System.out.println(arr[0] == null);
 		System.out.println(arr[0].equals(""));
+//		System.out.println(arr[2]);
+		String[] arr1 = ",".split(",");
+		System.out.println(arr1.length);
+		System.out.println("split测试结束");
+		
 		String str = "123第三附属";
 		String str1;
 		try {

@@ -16,6 +16,11 @@ public class Test {
 //		testValue();
 		parseTime2Date(d);
 		System.out.println("testDate outer:" + d);
+		
+		Date todayTime = new Date();
+		Date today = new Date(todayTime.getYear(), todayTime.getMonth(), todayTime.getDate());
+		System.out.println(today);
+		System.out.println(today.getTime());
 	}
 	
 	private static void testValue() {
