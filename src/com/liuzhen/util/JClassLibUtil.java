@@ -10,12 +10,12 @@ import org.gjt.jclasslib.structures.CPInfo;
 import org.gjt.jclasslib.structures.ClassFile;
 import org.gjt.jclasslib.structures.constants.ConstantLongInfo;
 /**
- * @class: JClassLabUtil
- * @description: jclasslab工具的应用
+ * @class: JClassLibUtil
+ * @description: jclasslib工具的应用
  * @author: L.zhen
  * @date: 2018/3/2 16:57
  */
-public class JClassLabUtil {
+public class JClassLibUtil {
 	
 	public static void main(String[] args) throws Exception {
 		
