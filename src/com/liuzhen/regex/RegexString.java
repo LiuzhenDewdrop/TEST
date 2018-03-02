@@ -6,7 +6,12 @@ import java.util.regex.Pattern;
 public class RegexString {
 
 	public static void main(String[] args) {
-//		String str = "c.cus_dept_name like \"%%\"";
+//		test001();
+		test002();
+	}
+	
+	private static void test001() {
+		//		String str = "c.cus_dept_name like \"%%\"";
 //		String a = "\"";
 //		String s = "&quot;";
 //		String string = str.replaceAll(a, s);
@@ -19,5 +24,9 @@ public class RegexString {
 		for(int i=0; i<= matcher.groupCount(); i++) {
 			System.out.println(matcher.group(i));
 		}
+	}
+	
+	private static void test002() {
+		System.out.println(" 34 35 .89% ".replaceAll("[ %]", ""));
 	}
 }

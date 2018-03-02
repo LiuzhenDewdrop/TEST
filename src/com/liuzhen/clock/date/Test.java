@@ -21,6 +21,8 @@ public class Test {
 		Date today = new Date(todayTime.getYear(), todayTime.getMonth(), todayTime.getDate());
 		System.out.println(today);
 		System.out.println(today.getTime());
+		
+		getTodayDate();
 	}
 	
 	private static void testValue() {
@@ -55,5 +57,14 @@ public class Test {
 	private static void parseTime2Date(Date d) {
 		Date d1 = new Date(d.getYear(), d.getMonth(), d.getDate());
 		System.out.println("testDate inner:" + d1);
+	}
+	
+	private static void getTodayDate() {
+		Date d = new Date();
+		Date today = new Date(d.getYear(), d.getMonth(), d.getDate());
+		System.out.println(today);
+		Date yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
+		System.out.println(yesterday);
+		// System.out.println(new Date(new Date().getTime() / 1000 / 60 / 60 / 24 * 24 * 60 * 60 * 1000));
 	}
 }

@@ -12,6 +12,7 @@ public class Test {
 	private final static long mask = (1L << 48) - 1;
 	
 	public static void main(String[] args) {
+		test000();
 		test001();
 		test002();
 		test003();
@@ -28,6 +29,7 @@ public class Test {
 	 */
 	public static void test000() {
 		System.out.println("test000 start...");
+		System.out.println("int的max_value:" + Integer.MAX_VALUE);
 		System.out.println("long的max_value:" + Long.MAX_VALUE);
 		System.out.println(Double.MAX_VALUE);
 		System.out.println(new BigDecimal(Double.MAX_VALUE).toString());

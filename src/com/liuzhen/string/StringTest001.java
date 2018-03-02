@@ -2,9 +2,15 @@ package com.liuzhen.string;
 
 import java.io.UnsupportedEncodingException;
 
-public class Test001 {
+public class StringTest001 {
 
 	public static void main(String[] args) {
+//		test001();
+		parseTest();
+		System.exit(0);
+	}
+	
+	private static void test001() {
 		String[] arr = ",12,".split(",");
 		System.out.println(arr.length);
 		System.out.println(arr[0] == null);
@@ -27,17 +33,24 @@ public class Test001 {
 		String testStr = ",4564,";
 		testStr = testStr.substring(1, testStr.length() - 1);
 		System.out.println(testStr + ":" + testStr.length());
-		String name = "成十一";
+		System.out.println("∞");
+	}
+	
+	private static void parseTest() {
+		String name = "成十一电风扇电风扇的";
 		try {
 			// UTF-8
 			// GBK
 			// iso8859-1
 			// gb2312
-			System.out.println("name" + name + ":" + new String(name.getBytes("UTF-8"), "iso8859-1"));
+			String[] arr = {"UTF-8", "GBK", "iso8859-1", "gb2312"};
+			for (String s : arr) {
+				for (String s1 : arr) {
+					System.out.println("原值：" + name + "，从" + s + "转为：" + s1 + "：" + new String(name.getBytes(s), s1));
+				}
+			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		System.out.println("∞");
-		System.exit(0);
 	}
 }
