@@ -40,7 +40,14 @@ public class Test001 {
 		listB.get(0);
 		listA.get(0);
 		String s = (String) listB.get(0);
-		Integer a = listA.get(0);
+//		Integer a = listA.get(0);
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("a", "aaaaa");
+		map.put("b", "bbbbb");
+		map.put("c", "ccccc");
+		map.put("d", "ddddd");
+		System.out.println(map.toString());
 		System.exit(0);
 	}
 }

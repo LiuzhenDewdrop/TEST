@@ -1,4 +1,4 @@
-package com.liuzhen.util;
+package com.liuzhen.app.util;
 
 import java.util.Collection;
 import java.util.List;

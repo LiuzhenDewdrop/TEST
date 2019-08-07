@@ -23,6 +23,12 @@ public class Test {
 		System.out.println(today.getTime());
 		
 		getTodayDate();
+		
+		System.out.println(new Date());
+		final int num = 1000 * 60 * 60 * 24;
+		System.out.println(new Date((new Date().getTime() / num - 1) * num));
+		
+		testMax();
 	}
 	
 	private static void testValue() {
@@ -66,5 +72,13 @@ public class Test {
 		Date yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
 		System.out.println(yesterday);
 		// System.out.println(new Date(new Date().getTime() / 1000 / 60 / 60 / 24 * 24 * 60 * 60 * 1000));
+	}
+	
+	private static void testMax() {
+		System.out.println("testMax start ......");
+		Long l = Long.MAX_VALUE;
+		System.out.println(l);
+		Date d = new Date(l);
+		System.out.println(d);
 	}
 }

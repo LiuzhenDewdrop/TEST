@@ -1,6 +1,6 @@
 package com.liuzhen.node;
 /**
- * @class: Node
+ * @class: Element
  * @description: 
  * @author: Liuzhen
  */

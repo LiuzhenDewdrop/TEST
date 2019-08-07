@@ -14,6 +14,7 @@ public class SystemTest {
 	}
 	
 	private static void testProperty() {
+		System.setProperty("liuzhen", "123456");
 		System.out.println(System.getProperty("java.home"));
 		System.out.println(System.getProperty("java.version"));
 		System.out.println(System.getProperty("os.name"));

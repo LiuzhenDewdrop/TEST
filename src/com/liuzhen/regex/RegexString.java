@@ -7,7 +7,7 @@ public class RegexString {
 
 	public static void main(String[] args) {
 //		test001();
-		test002();
+		test003();
 	}
 	
 	private static void test001() {
@@ -28,5 +28,22 @@ public class RegexString {
 	
 	private static void test002() {
 		System.out.println(" 34 35 .89% ".replaceAll("[ %]", ""));
+	}
+	
+	public static void test003() {
+		String str = "账户名：266***@**@qq.com ( 手机：155******04 、会员名：淘宝账户名为风**忆 )";
+		final String mobileStr = "手机：";
+		int mobileIndex = str.indexOf(mobileStr);
+		int start = mobileIndex + mobileStr.length();
+		String mobile = str.substring(start, start + 11);
+		System.out.println(mobile);
+		
+		Pattern pattern = Pattern.compile("^.*(\\d{3}\\*{6}\\d{2}).*$");
+		Matcher matcher = pattern.matcher(str);
+		matcher.matches();
+//		for(int i=0; i<= matcher.groupCount(); i++) {
+//			System.out.println(matcher.group(i));
+//		}
+		System.out.println(matcher.group(1));
 	}
 }

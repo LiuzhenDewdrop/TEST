@@ -13,10 +13,7 @@ public class InsertSort {
 				int j = i - 1;
 				int temp = a[i];		// 记录较小值
 				a[i] = a[i - 1];		// 较大值后移
-				while (temp < a[j]) {	// 较小值向前移动
-					if (--j == -1) {
-						break;
-					}
+			 	while (--j != -1 && temp < a[j]) {	// 较小值向前移动
 					a[j + 1] = a[j];
 				}
 				a[j + 1] = temp;		// 小值前移受阻或到达最左端,把较小值插入合理位置

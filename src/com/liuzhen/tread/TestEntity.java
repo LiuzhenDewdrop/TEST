@@ -8,6 +8,8 @@ public class TestEntity {
 	
 	private String id;
 	private String name;
+	private String desc;
+	
 	private static String detail;
 	
 	public TestEntity() {
@@ -35,6 +37,14 @@ public class TestEntity {
 		this.name = name;
 	}
 	
+	public String getDesc() {
+		return desc;
+	}
+	
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	
 	public static String getDetail() {
 		return detail;
 	}
@@ -42,4 +52,6 @@ public class TestEntity {
 	public static void setDetail(String detail) {
 		TestEntity.detail = detail;
 	}
+	
+	
 }

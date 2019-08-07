@@ -45,9 +45,9 @@ public class EqualCapitalAndInterest {
 	}
 	
 	public static void main(String[] args) {
-		BigDecimal contractAmt = new BigDecimal(70000);
-		BigDecimal monthRate = new BigDecimal(0.0214);
-		int periods = 12;
+		BigDecimal contractAmt = new BigDecimal(200000);
+		BigDecimal monthRate = new BigDecimal(0.006);
+		int periods = 60;
 		System.out.println("单期总额" + getMonthTotal(contractAmt, monthRate, periods));
 //		Money m = getFirst(contractAmt, monthRate, periods);
 //		System.out.println(m.getCapital());
