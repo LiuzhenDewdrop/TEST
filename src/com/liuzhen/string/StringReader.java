@@ -1,7 +1,7 @@
 package com.liuzhen.string;
 
 import com.liuzhen.app.util.FileUtil;
-import com.liuzhen.app.util.StringUtil;
+import com.liuzhen.app.util.StringUtils;
 
 /*
  * @class: StringReader
@@ -19,8 +19,8 @@ public class StringReader {
 	}
 	
 	private static void printStr(String str) {
-		String[] arr = StringUtil.cutByLength(str.split("\n"), 50);
-		System.out.println(StringUtil.join(arr, "\n"));
+		String[] arr = StringUtils.cutByLength(str.split("\n"), 50);
+		System.out.println(StringUtils.join(arr, "\n"));
 	}
 	
 	private static void test001() {
@@ -33,7 +33,7 @@ public class StringReader {
 				.replaceAll("。\n", "。")
 				.replaceAll("。", "。\n")
 				.replaceAll("A：", "\nA：");
-		System.out.println(StringUtil.join(StringUtil.cutByLength(content.split("\n"), 50), "\n"));
+		System.out.println(StringUtils.join(StringUtils.cutByLength(content.split("\n"), 50), "\n"));
 	}
 	
 	private static void test002() {
@@ -78,8 +78,8 @@ public class StringReader {
 			}
 		}
 		System.out.println(strs);
-		String[][] arrs = StringUtil.create(strs, 200);
-		StringUtil.print(arrs);
+		String[][] arrs = StringUtils.create(strs, 200);
+		StringUtils.print(arrs);
 	}
 }
 

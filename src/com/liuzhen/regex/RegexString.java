@@ -7,7 +7,7 @@ public class RegexString {
 
 	public static void main(String[] args) {
 //		test001();
-		test003();
+		test002();
 	}
 	
 	private static void test001() {

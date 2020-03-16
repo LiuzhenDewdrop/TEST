@@ -2,6 +2,7 @@ package com.liuzhen.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -10,7 +11,7 @@ import com.liuzhen.model.BaseModel;
 
 /**
  * @class: LambdaCollector
- * @description: 
+ * @description:
  * @author: L.zhen
  * @date: 2018/2/7 15:58
  */
@@ -20,7 +21,11 @@ public class LambdaCollector {
 //		test001();
 //		test002();
 //		test003();
-		test004();
+//		test004();
+		test005();
+//		System.out.println('​');
+//		System.out.println((int)'​');
+//		System.out.println((int)'!');
 	}
 	
 	private static List<BaseModel> createList() {
@@ -35,7 +40,7 @@ public class LambdaCollector {
 	
 	private static void test001() {
 		List<BaseModel> list = createList();
-		List<BaseModel> testList = list.stream().filter(baseModel -> "f".equals(baseModel.getSex())).collect(Collectors.toList());
+		List<BaseModel> testList = list.stream().filter(baseModel -> "f".equals(baseModel.getSex())).sorted(Comparator.comparing(BaseModel::getId)).collect(Collectors.toList());
 		if (testList == null) {
 			System.out.println("size: is null !" );
 		} else {
@@ -88,12 +93,19 @@ public class LambdaCollector {
 	
 	private static void test004() {
 		List<BaseModel> list = createList();
-		List<String> nameList = list.stream().map(BaseModel::getName).collect(Collectors.toList());
+		List<String> nameList = list.stream().map(BaseModel::getSex).collect(Collectors.toList());
+//		List<String> nameList = list.stream().map(BaseModel::getSex).distinct().collect(Collectors.toList());
 		if (nameList == null) {
 			System.out.println("size: is null !" );
 		} else {
 			System.out.println("size:" + nameList.size());
 			System.out.println(Arrays.toString(nameList.toArray()));
 		}
+	}
+	
+	private static void test005() {
+		List<BaseModel> list = createList();
+//		BaseModel baseModel = list.stream().filter(a -> a.getSex().equals("a")).findFirst();
+//		System.out.println(baseModel);
 	}
 }
