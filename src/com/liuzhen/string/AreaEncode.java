@@ -7,8 +7,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import sun.security.util.Password;
-
 /*
  * @class: AreaEncode
  * @description: 
@@ -59,7 +57,7 @@ public class AreaEncode {
 		File f = new File(path);
 		InputStreamReader ins = null;
 		InputStream is = null;
-		Password password = new Password();
+//		Password password = new Password();
 		StringBuilder stringBuilder = new StringBuilder();
 		try {
 			is = new FileInputStream(f);

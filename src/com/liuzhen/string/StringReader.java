@@ -1,6 +1,6 @@
 package com.liuzhen.string;
 
-import com.liuzhen.app.util.FileUtil;
+import com.liuzhen.app.util.FileUtils;
 import com.liuzhen.app.util.StringUtils;
 
 /*
@@ -25,7 +25,7 @@ public class StringReader {
 	
 	private static void test001() {
 		String path = "D:\\Download\\BrowserDownload\\我不喜欢这世界我只喜欢你.txt";
-		String content = FileUtil.getContent(path);
+		String content = FileUtils.getContent(path);
 		int index = content.indexOf("提问与回答");
 		content = content.substring(index);
 		content = content.replaceAll("F：", "\nF：")
@@ -44,7 +44,7 @@ public class StringReader {
 	
 	private static void test003() {
 		String path = "D:\\Download\\BrowserDownload\\log (12).txt";
-		String content = FileUtil.getContent(path);
+		String content = FileUtils.getContent(path);
 		String[] arr = content.split("\n");
 		for (String s : arr) {
 			if (s.contains("+调用产品中心导入历史投资接口")) {
@@ -66,7 +66,7 @@ public class StringReader {
 	
 	private static void test004() {
 		String path = "D:\\desktop\\Doc\\变现通\\苏瑞\\创建投资2735笔数据.txt";
-		String content = FileUtil.getContent(path);
+		String content = FileUtils.getContent(path);
 		String[] arr = content.split("\r\n");
 		System.out.println(arr.length);
 		String strs = "";

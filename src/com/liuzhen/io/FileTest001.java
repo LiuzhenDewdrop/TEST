@@ -4,8 +4,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 
 import javax.imageio.ImageIO;
+
+import com.liuzhen.app.util.FileUtils;
+
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.EncoderException;
+import it.sauronsoftware.jave.MultimediaInfo;
 
 /**
  * @class: FileTest001
@@ -19,8 +26,10 @@ public class FileTest001 {
 	
 	public static void main(String[] args) {
 //		deal();
-		numbers = initNumbers();
-		test(numbers);
+//		numbers = initNumbers();
+//		test(numbers);
+//		printPolicy();
+		changeName();
 	}
 	
 	private static void deal() {
@@ -386,5 +395,81 @@ public class FileTest001 {
 	private static int analyse(NumBean nb) {
 		
 		return 0;
+	}
+	
+	private static void printPolicy() {
+		String path = "D:\\Downloads\\BaiduNetdisk\\02.强化班";
+//		String tempPath = "D:\\Downloads\\BaiduNetdisk\\02.强化班\\temp\\";
+		File[] list = findFiles(path);
+		Encoder encoder = new Encoder();
+		int i = 0;
+		for (File dir : list) {
+			if ("temp".equals(dir.getName())) {
+				continue;
+			}
+			for (File file : Objects.requireNonNull(dir.listFiles())) {
+//				if (file.getName().contains(".downloading")) {
+//					System.out.println(++i + file.getName());
+//					file.renameTo(new File(tempPath + file.getName()));
+//					continue;
+//				}
+//				file.renameTo(new File(file.getAbsolutePath().replaceAll("【公众号：思雨考研】", "").replaceAll(" ", "")));
+				String name = FileUtils.getName(file);
+				char[] nChars = name.toCharArray();
+				if ('0' == nChars[name.length() - 2]) {
+					nChars[name.length() - 2] = '-';
+//					file.renameTo(new File(file.getAbsolutePath().replaceAll(name, String.valueOf(nChars))));
+				}
+				System.out.print("【" + dir.getName() + "】" + FileUtils.getName(file) + "\t");
+				try {
+					MultimediaInfo info = encoder.getInfo(file);
+					long d = info.getDuration();
+					d /= 1000;
+					long ss = d % 60;
+					d /= 60;
+					long mm = d % 60;
+					long hh = d / 60;
+					StringBuilder dStr = new StringBuilder("");
+					if (hh != 0) {
+						dStr.append(hh).append(".");
+					}
+					if (mm < 10) {
+						dStr.append(0);
+					}
+					dStr.append(mm);
+					if (ss != 0) {
+						dStr.append(".");
+						if (ss < 10) {
+							dStr.append(0).append(ss);
+						} else if (ss % 10 == 0) {
+							dStr.append(ss/10);
+						} else {
+							dStr.append(ss);
+						}
+					} else if (hh != 0) {
+						dStr.append(".");
+						dStr.append(0).append(0);
+					}
+//					System.out.println(hh + "." + mm + "." + ss + "\t" + info.getDuration() + "\t" + dStr);
+					System.out.println(dStr);
+				} catch (EncoderException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println(1);
+	}
+	
+	private static void changeName(){
+		String path = "D:\\Downloads\\BaiduNetdisk\\天龙八部97版";
+		File[] list = findFiles(path);
+		for (File file : list) {
+			String[] arr = file.getName().split("\\.");
+			System.out.println(arr[0]);
+			System.out.println(arr[1]);
+			if ("mkv1".equals(arr[1])) {
+				file.renameTo(new File(path + "\\" + arr[0] + ".mkv"));
+			}
+		}
 	}
 }

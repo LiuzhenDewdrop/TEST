@@ -4,7 +4,7 @@ import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-import com.liuzhen.app.util.FileUtil;
+import com.liuzhen.app.util.FileUtils;
 
 /*
  * @class: JsHelper
@@ -54,7 +54,7 @@ public class JsHelper {
 	}
 	
 	private static void test003() {
-		String content = FileUtil.getContent("src/com/liuzhen/js/static/test.js");
+		String content = FileUtils.getContent("src/com/liuzhen/js/static/test.js");
 		test002(content, "sayHello", "123");
 		System.out.println(1);
 	}
@@ -63,7 +63,7 @@ public class JsHelper {
 		String sessonId = "";
 		String e = times == 1 ? "user.captcha" : "user.isRegistered";
 		String r = times == 1 ? "{\"deviceType\":\"pc\"}" : "{\"userName\":\"" + phone + "\",\"deviceType\":\"pc\"}";
-		String content = FileUtil.getContent("src/com/liuzhen/js/static/mindaiLogin.js");
+		String content = FileUtils.getContent("src/com/liuzhen/js/static/mindaiLogin.js");
 		test002(content, "getValues", sessonId, e, r);
 	}
 	
@@ -71,7 +71,7 @@ public class JsHelper {
 		String callback = "search.jsp?tableId=0_-1&bcId=147935112391062412920290887258";
 		String url = "8p4";
 			String formEle = "tableId=124&bcId=150225369505818928066514190553&curstart=5&tableName=TABLE124&viewtitleName=COLUMN1654&viewsubTitleName=COLUMN1661,COLUMN1653&tableView=婴幼儿配方乳粉产品配方&cid=0&ytableId=0&searchType=search&State=1";
-		String content = FileUtil.getContent("src/com/liuzhen/js/static/shipinyaopinjiandu.js");
+		String content = FileUtils.getContent("src/com/liuzhen/js/static/shipinyaopinjiandu.js");
 		test002(content, "commitForECMA", formEle);
 	}
 }

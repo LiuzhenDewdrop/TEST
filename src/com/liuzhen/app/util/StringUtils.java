@@ -170,6 +170,24 @@ public class StringUtils {
 		}
 	}
 	
+	/**
+	 * @title:  printConLenBinary
+	 * @description: 打印定长二进制
+	 * @param i		待转数字
+	 * @param n		指定长度（0为不指定）
+	 * @param b		是否前面加 0b
+	 */
+	public static String printConLenBinary(int i, int n, boolean b) {
+		String s = Integer.toBinaryString(i);
+		while (s.length() < n) {
+			s = "0" + s;
+		}
+		if (b) {
+			s = "0b" + s;
+		}
+		return s;
+	}
+	
 	public static void main(String[] args) {
 		String str = "123";
 		String str1 = str.substring(1, 2);
